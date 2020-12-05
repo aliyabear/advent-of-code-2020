@@ -18,7 +18,7 @@
                        (let [diff (- sum curr)]
                          (if (some #(= diff %) input)
                            (* diff curr)
-                           (recur (drop 1 input) (second input)))))]
+                           (recur (rest input) (second input)))))]
 
     (find-entries input (first input))))
 
