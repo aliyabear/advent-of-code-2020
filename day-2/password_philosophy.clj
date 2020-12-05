@@ -6,7 +6,7 @@
               "6-7 z: dqzzzjbzz"
               "13-16 j: jjjvjmjjkjjjjjjj"
               "7-15 p: rpjvppwfppsppptppqb"
-              
+              "2-3 c: ccccc"
               "10-12 w: wwwbwwjwnwqwbwswwwg"])
 
   ;; let the hackery begin!!!!!!!
@@ -23,11 +23,27 @@
           true
           false)))
 
+;; Each policy actually describes two positions in the password, where 1 means the first character, 2 means the second character, and so on. (Be careful; Toboggan Corporate Policies have no concept of "index zero"!) Exactly one of these positions must contain the given letter. Other occurrences of the letter are irrelevant for the purposes of policy enforcement.
+(defn valid-password-2? [input]
+  (let [split (str/split input #": ")
+        policy (str/split (first split) #" ")
+        password (second split)
+        range (str/split (first policy) #"-")
+        maximum (dec (Integer/parseInt (last range)))
+        minimum (dec (Integer/parseInt (first range)))
+        character (first (second policy))
+        first (nth password minimum)
+        second (nth password maximum)
+        ]
+    (cond
+      (= first second) false
+      (some #(= character %) [first second]) true
+      :else false)))
+
 (comment
 
-  (count (filter valid-password? input ))
+  (map valid-password? input)
 
   (def real-input (str/split (slurp "input.txt") #"\n"))
-
-  (count (filter valid-password? real-input))
+  (count (filter valid-password-2? real-input))
   )
