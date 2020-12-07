@@ -11,7 +11,8 @@
             "#.##...#..."
             "#...##....#"
             ".#..#...#.#"])
- 
+
+;; yes, this is a very big hack b/c I am lazy 
 (defn big-input [input n] (map #(apply str (repeat n %)) input))
 
 (defn count-trees [input n acc]

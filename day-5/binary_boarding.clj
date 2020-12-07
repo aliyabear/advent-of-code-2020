@@ -12,18 +12,13 @@
   ;; that's how hacky we feel today!
   (defn get-row [input x y low]
     (let [current (first input)
-          z  (+ x(quot (- y x) 2))
-          lower (if (= low current)
-                  x
-                  (inc z))
-          upper (if (= low current)
-                      z
-                      y)]
+          z  (+ x (quot (- y x) 2))
+          low? (= low current)
+          lower (if low? x (inc z))
+          upper (if low? z y)]
+
           (if (empty? (rest input))
-            (if (= low current)                         
-              lower
-              upper
-              )
+            (if  low? lower upper)                     
             (recur (rest input) lower upper low))))
 
 
