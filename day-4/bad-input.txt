@@ -1,0 +1,16 @@
+iyr:1922
+ecl:gmt
+eyr:1963
+pid:#d1a6f3 hcl:z byr:2015 hgt:153in
+
+eyr:2022 ecl:gry
+hgt:156cm
+pid:640711969
+hcl:#cfa07d
+
+ecl:grn
+eyr:1980 pid:385212564 hcl:5b27f7 hgt:160cm iyr:2016 cid:171 byr:1990
+
+iyr:2020
+cid:212 pid:959667791 byr:2002 ecl:amb
+hgt:75in eyr:2026 hcl:#888785
